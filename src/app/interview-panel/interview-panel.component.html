@@ -1,0 +1,23 @@
+<table border="1">
+    <thead></thead>
+    <tr>
+      <th>Question #</th>
+      <th>Employer Name</th>
+      <th>Technology</th>
+      <th>Question Asked</th>
+      <th>Given Answer</th>
+      <th>Interview Date</th>
+      </tr>
+    
+      <tbody>
+        <tr *ngFor="let interviewQuestionAnswer of interviewQuestionAnswers">
+            <td>{{interviewQuestionAnswer.qid}}</td>
+            <td>{{interviewQuestionAnswer.employerName}}</td>
+            <td>{{interviewQuestionAnswer.technology}}</td>
+            <td>{{interviewQuestionAnswer.questionAsked}}</td>
+            <td>{{interviewQuestionAnswer.givenAnswer}}</td>
+            <td>{{interviewQuestionAnswer.interviewDate}}</td>
+            <td><button class="btn btn-danger" (click)="deleteEmployee(interviewQuestionAnswer)"> Delete InterviewQA</button></td>
+            </tr>
+    </tbody>
+    </table>

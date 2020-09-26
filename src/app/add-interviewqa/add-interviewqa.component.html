@@ -1,20 +1,28 @@
 <div class="col-md-6">
     <h2 class="text-center">Add Interview Question And Answer</h2>
     <form>
-      <div class="form-group">
+     <!-- <div class="form-group">
         <label for="name">Question Number:</label>
         <input type="name" [(ngModel)]="user.qId" placeholder="Q-Number" name="name" class="form-control" id="q-Number">
       </div>
-    
+    -->
       <div class="form-group">
         <label for="name">Employer Name:</label>
         <input type="name" [(ngModel)]="user.employerName" placeholder="Virtusa/TCS/CTS" name="name" class="form-control" id="employerName">
       </div>
     
-      <div class="form-group">
+    <!--  <div class="form-group">
         <label for="technology">Technology:</label>
-        <input [(ngModel)]="user.technology" placeholder="Java/Microservice/Angular/Docker/Kubernate" name="technology" class="form-control" id="technology">
+        <input [(ngModel)]="user.technology" placeholder="Java//Angular//Kubernate" name="technology" class="form-control" id="technology">
       </div>
+-->
+      <div class="form-group">
+        <label for="prenom">Technology</label>
+        <select class="form-control" id="technology" [(ngModel)]="user.technology"  required name="technology">
+          <option value="" [selected]="isSelected" disabled> Please choose one technology</option>
+          <option *ngFor="let technology of Technologies" [value]="technology">{{ technology }}</option>
+        </select>
+    </div>
 
       <div class="form-group">
         <label for="questionAsked">Question Asked:</label>
@@ -22,6 +30,7 @@
       </div>
     
       <div class="form-group">
+
         <label for="answer">Given Answer:</label>
         <input [(ngModel)]="user.givenAnswer" placeholder="Decoupling of monolithic application in to granular service." name="Given Answer" class="form-control" id="givenAnswer">
       </div>

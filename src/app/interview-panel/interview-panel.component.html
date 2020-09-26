@@ -7,6 +7,7 @@
       <th>Question Asked</th>
       <th>Given Answer</th>
       <th>Interview Date</th>
+      <th>Posted by</th>
       </tr>
     
       <tbody>
@@ -17,7 +18,8 @@
             <td>{{interviewQuestionAnswer.questionAsked}}</td>
             <td>{{interviewQuestionAnswer.givenAnswer}}</td>
             <td>{{interviewQuestionAnswer.interviewDate}}</td>
-            <td><button class="btn btn-danger" (click)="deleteEmployee(interviewQuestionAnswer)"> Delete InterviewQA</button></td>
+            <td>{{interviewQuestionAnswer.postedBy}}</td>
+           <!-- <td><button class="btn btn-danger" (click)="deleteEmployee(interviewQuestionAnswer)"> Delete InterviewQA</button></td>-->
             </tr>
     </tbody>
     </table>

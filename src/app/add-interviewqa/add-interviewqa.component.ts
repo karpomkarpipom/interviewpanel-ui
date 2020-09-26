@@ -10,7 +10,7 @@ export class AddInterviewqaComponent implements OnInit {
 
   user: InterviewQuestionAnswer = new InterviewQuestionAnswer("","","","","","");
 
-
+  Technologies: any = ['Angular','DevOps','Java', 'Microservice', 'MongoDB','Networking','Others']
   constructor( private interviewPanelService:InterviewPanelServiceService) {
 
  

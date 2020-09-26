@@ -15,6 +15,11 @@ import { BasicAuthHtppInterceptorService } from './service/basic-auth-htpp-inter
 import { InterviewPanelComponent } from './interview-panel/interview-panel.component';
 import { AddInterviewqaComponent } from './add-interviewqa/add-interviewqa.component';
 import { SignupComponent } from './signup/signup.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactusComponent } from './contactus/contactus.component';
+ 
 
 @NgModule({
   declarations: [
@@ -27,13 +32,20 @@ import { SignupComponent } from './signup/signup.component';
     FooterComponent,
     LoginComponent,
     LogoutComponent,
-    SignupComponent
+    SignupComponent,
+    FeedbackComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule, 
+    FormsModule, 
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
   {  

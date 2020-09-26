@@ -1,10 +1,12 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <div><a href="" class="navbar-brand">InterviewQuestionAnswers</a></div>
+    <h5 style="color:red; font-weight: bold; font-size: 18px;"><div>INTERVIEW PANEL</div></h5>
 
       <ul class="navbar-nav">
           <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View InterviewQuestionAnswers</a></li>
           <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addinterviewqa" class="nav-link">Add New InterviewQuestionAnswers</a></li>
+          <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/feedback" class="nav-link">Feedback</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/contactus" class="nav-link">Contact Us</a></li>
           <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
           <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/signup" class="nav-link">Signup</a></li>
           <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
@@ -12,5 +14,6 @@
       </ul>
 
   </nav>
-
+  
 </header>
+

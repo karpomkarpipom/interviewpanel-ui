@@ -19,7 +19,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactusComponent } from './contactus/contactus.component';
- 
+import { MatTableModule ,MatPaginatorModule,MatSortModule, MatFormFieldModule,MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,11 @@ import { ContactusComponent } from './contactus/contactus.component';
     FormsModule, 
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
 
   ],
   providers: [

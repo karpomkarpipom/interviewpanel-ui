@@ -1,25 +1,58 @@
-<table border="1">
-    <thead></thead>
-    <tr>
-      <th>Question #</th>
-      <th>Employer Name</th>
-      <th>Technology</th>
-      <th>Question Asked</th>
-      <th>Given Answer</th>
-      <th>Interview Date</th>
-      <th>Posted by</th>
-      </tr>
-    
-      <tbody>
-        <tr *ngFor="let interviewQuestionAnswer of interviewQuestionAnswers">
-            <td>{{interviewQuestionAnswer.qid}}</td>
-            <td>{{interviewQuestionAnswer.employerName}}</td>
-            <td>{{interviewQuestionAnswer.technology}}</td>
-            <td>{{interviewQuestionAnswer.questionAsked}}</td>
-            <td>{{interviewQuestionAnswer.givenAnswer}}</td>
-            <td>{{interviewQuestionAnswer.interviewDate}}</td>
-            <td>{{interviewQuestionAnswer.postedBy}}</td>
-           <!-- <td><button class="btn btn-danger" (click)="deleteEmployee(interviewQuestionAnswer)"> Delete InterviewQA</button></td>-->
-            </tr>
-    </tbody>
-    </table>
+<div></div>
+&nbsp;&nbsp;&nbsp;&nbsp;<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+
+<mat-table  [dataSource]="dataSource" matSort >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="employerName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Employer Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.employerName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="technology">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Technology </th>
+    <td mat-cell *matCellDef="let element"> {{element.technology}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="questionAsked">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Asked </th>
+    <td mat-cell *matCellDef="let element"> {{element.questionAsked}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="givenAnswer">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Given Answer </th>
+    <td mat-cell *matCellDef="let element"> {{element.givenAnswer}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="interviewDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Interview Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.interviewDate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="questionPostedBy">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> QuestionPosted By </th>
+    <td mat-cell *matCellDef="let element"> {{element.questionPostedBy}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</mat-table>
+
+</div>
+
+  <mat-paginator fixed [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator> 
+

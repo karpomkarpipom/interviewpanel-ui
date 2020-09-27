@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class InterviewQuestionAnswer{
   constructor(
-    public qId:string,
+    public questionPostedBy:string,
     public employerName:string,
     public technology:string,
     public questionAsked:string,

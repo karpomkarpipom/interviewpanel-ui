@@ -6,9 +6,15 @@
         <input type="name" [(ngModel)]="user.qId" placeholder="Q-Number" name="name" class="form-control" id="q-Number">
       </div>
     -->
+
+    <div class="form-group">
+      <label for="name">Your Name:</label>
+      <input type="name" [(ngModel)]="interviewQuestionAnswer.questionPostedBy" placeholder="Selvapandy Moorthy" name="your name" class="form-control" id="questionPostedBy">
+    </div>
+
       <div class="form-group">
         <label for="name">Employer Name:</label>
-        <input type="name" [(ngModel)]="user.employerName" placeholder="Virtusa/TCS/CTS" name="name" class="form-control" id="employerName">
+        <input type="name" [(ngModel)]="interviewQuestionAnswer.employerName" placeholder="Apple/Virtusa/TCS/CTS" name="name" class="form-control" id="employerName">
       </div>
     
     <!--  <div class="form-group">
@@ -18,7 +24,7 @@
 -->
       <div class="form-group">
         <label for="prenom">Technology</label>
-        <select class="form-control" id="technology" [(ngModel)]="user.technology"  required name="technology">
+        <select class="form-control" id="technology" [(ngModel)]="interviewQuestionAnswer.technology"  required name="technology">
           <option value="" [selected]="isSelected" disabled> Please choose one technology</option>
           <option *ngFor="let technology of Technologies" [value]="technology">{{ technology }}</option>
         </select>
@@ -26,19 +32,19 @@
 
       <div class="form-group">
         <label for="questionAsked">Question Asked:</label>
-        <input [(ngModel)]="user.questionAsked" placeholder="What is Microservice?" name="questionAsked" class="form-control" id="questionAsked">
+        <input [(ngModel)]="interviewQuestionAnswer.questionAsked" placeholder="What is Microservice?" name="questionAsked" class="form-control" id="questionAsked">
       </div>
     
       <div class="form-group">
 
         <label for="answer">Given Answer:</label>
-        <input [(ngModel)]="user.givenAnswer" placeholder="Decoupling of monolithic application in to granular service." name="Given Answer" class="form-control" id="givenAnswer">
+        <input [(ngModel)]="interviewQuestionAnswer.givenAnswer" placeholder="Decoupling of monolithic application in to granular service." name="Given Answer" class="form-control" id="givenAnswer">
       </div>
 
       
       <div class="form-group">
         <label for="interviewDate">Interview date:(mm/dd/yyyy)</label>
-        <input [(ngModel)]="user.interviewDate" placeholder="04/18/2020" name="Interview date" class="form-control" id="interviewDate">
+        <input [(ngModel)]="interviewQuestionAnswer.interviewDate" placeholder="04/18/2020" name="Interview date" class="form-control" id="interviewDate">
       </div>
     
       <button class="btn btn-success" (click)="createInterviewQA()">Create</button>

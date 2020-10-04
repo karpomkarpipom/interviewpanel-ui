@@ -2,9 +2,11 @@
   <div>Fields marked with an asterisk (*) are required.</div>
   <br>
   <div>
-    *Email address : <input type="text" name="username" [(ngModel)]="username">
+    <table>
+   <tr><td><b>*Email address </b> </td><td><input type="text" name="username" [(ngModel)]="username"></td></tr>
     
-    *Password : <input type="password" name="password" [(ngModel)]="password">
+  <tr><td><b>*Password </b> </td><td><input type="password" name="password" [(ngModel)]="password"></td></tr>
+  </table>
   </div>
   <button (click)=checkLogin() class="btn btn-success">
     Login

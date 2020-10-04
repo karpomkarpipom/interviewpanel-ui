@@ -6,53 +6,53 @@
 
 <div class="mat-elevation-z8">
 
-<mat-table  [dataSource]="dataSource" matSort >
+<mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z2" style="margin-bottom: 10px;">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
   <ng-container matColumnDef="employerName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Employer Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.employerName}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Employer Name </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.employerName}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="technology">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Technology </th>
-    <td mat-cell *matCellDef="let element"> {{element.technology}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Technology </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.technology}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="questionAsked">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Asked </th>
-    <td mat-cell *matCellDef="let element"> {{element.questionAsked}} </td>
+  <ng-container matColumnDef="questionAsked" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Question Asked </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.questionAsked}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="givenAnswer">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Given Answer </th>
-    <td mat-cell *matCellDef="let element"> {{element.givenAnswer}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Given Answer </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.givenAnswer}} </td>
   </ng-container>
 
   <ng-container matColumnDef="interviewDate">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Interview Date </th>
-    <td mat-cell *matCellDef="let element"> {{element.interviewDate}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Interview Date </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.interviewDate}} </td>
   </ng-container>
 
   <ng-container matColumnDef="questionPostedBy">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> QuestionPosted By </th>
-    <td mat-cell *matCellDef="let element"> {{element.questionPostedBy}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> QuestionPosted By </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.questionPostedBy}} </td>
   </ng-container>
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-
+ 
 </mat-table>
-
+   <table><td><mat-paginator fixed [pageSizeOptions]="[9,10, 50, 100]" showFirstLastButtons></mat-paginator> </td></table>
 </div>
 
-  <mat-paginator fixed [pageSizeOptions]="[7, 10, 50, 100]" showFirstLastButtons></mat-paginator> 
+
 

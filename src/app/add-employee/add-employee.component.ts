@@ -9,7 +9,7 @@ import { InterviewPanelServiceService,InterviewQuestionAnswer } from '../service
 export class AddEmployeeComponent implements OnInit {
 
  
-  user: InterviewQuestionAnswer = new InterviewQuestionAnswer("","","","","","");
+  user: InterviewQuestionAnswer = new InterviewQuestionAnswer("","",[],"");
 
 
   constructor( private interviewPanelService:InterviewPanelServiceService) {

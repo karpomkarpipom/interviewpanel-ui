@@ -12,7 +12,7 @@ import { InterviewPanelServiceService,InterviewQuestionAnswer } from '../service
 })
 export class InterviewPanelComponent implements OnInit {
 
-  displayedColumns: string[] = ['employerName', 'technology', 'questionAsked', 'givenAnswer','interviewDate','questionPostedBy'];
+  displayedColumns: string[] = ['employerName','questionAnswers', 'questionPostedBy','interviewDate'];
   @Input('ELEMENT_DATA')  ELEMENT_DATA!:  InterviewQuestionAnswer[];
   dataSource = new MatTableDataSource<InterviewQuestionAnswer>(this.ELEMENT_DATA);
   

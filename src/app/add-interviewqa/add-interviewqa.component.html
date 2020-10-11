@@ -1,52 +1,89 @@
-<div class="col-md-6">
-    <h2 class="text-center">Add Interview Question And Answer</h2>
-    <form>
-     <!-- <div class="form-group">
-        <label for="name">Question Number:</label>
-        <input type="name" [(ngModel)]="user.qId" placeholder="Q-Number" name="name" class="form-control" id="q-Number">
+<div class="container">
+  
+  <h1 >Add Interview Question And Answer</h1>
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <!--
+    <p>
+      <label for="eployername" ><B>*Employer Name:</B></label>
+      <input type="text" id="name" name="employername" formControlName="employerName" class="form-control" placeholder="Firstdata/Virtusa/Apple/Microsoft"> 
+    </p>
+-->
+    <div class="form-group">
+      <label ><B>*Employer Name:</B></label>
+      <input type="text" formControlName="employerName" class="form-control" placeholder="Firstdata/Virtusa/Apple/Microsoft" [ngClass]="{ 'is-invalid': submitted && f.employerName.errors }" />
+      <div *ngIf="submitted && f.employerName.errors" class="invalid-feedback">
+          <div *ngIf="f.employerName.errors.required">Employer Name is required</div>
       </div>
-    -->
+    </div>
+
 
     <div class="form-group">
-      <label for="name">Your Name:</label>
-      <input type="name" [(ngModel)]="interviewQuestionAnswer.questionPostedBy" placeholder="Selvapandy Moorthy" name="your name" class="form-control" id="questionPostedBy">
+      <label for="questionPostedBy" ><B>*Your Name:</B></label>
+      <input type="text" id="name" name="questionPostedBy" required formControlName="questionPostedBy" class="form-control"
+       placeholder="Selvapandy Moorthy"
+       [ngClass]="{ 'is-invalid': submitted && f.questionPostedBy.errors }" 
+       > 
+       <div *ngIf="submitted && f.questionPostedBy.errors" class="invalid-feedback">
+        <div *ngIf="f.questionPostedBy.errors.required">Your Name is required</div>
     </div>
-
+    </div>
       <div class="form-group">
-        <label for="name">Employer Name:</label>
-        <input type="name" [(ngModel)]="interviewQuestionAnswer.employerName" placeholder="Apple/Virtusa/TCS/CTS" name="name" class="form-control" id="employerName">
-      </div>
-    
-    <!--  <div class="form-group">
-        <label for="technology">Technology:</label>
-        <input [(ngModel)]="user.technology" placeholder="Java//Angular//Kubernate" name="technology" class="form-control" id="technology">
-      </div>
+      <label for="questionPostedBy" ><B>Your contact:</B></label>
+      <input type="text" id="contact" name="contact" required formControlName="contact" class="form-control"
+       placeholder="Mobile/Email"
+       [ngClass]="{ 'is-invalid': submitted && f.questionPostedBy.errors }" 
+       > 
+       <div *ngIf="submitted && f.questionPostedBy.errors" class="invalid-feedback">
+        <div *ngIf="f.questionPostedBy.errors.required">Contact required</div>
+    </div>
+    </div>
+  
+  
+    <table class="table table-bordered" formArrayName="questionAnswers">
+      <tr>
+        <th colspan="3" class="labelAddQA">*Question and Answers:</th>
+        <th width="150px" class="labelAddQA"><button type="button" (click)="addQuestionAnswers()" class="btn btn-primary">Add More</button></th>
+      </tr>
+      <tr class="labelAddQA1" *ngFor="let questionAnswers of questionAnswers().controls; let i=index" [formGroupName]="i">
+       
+        <td>
+          <b>Technology :</b>
+          <input type="text" formControlName="technology" class="form-control" placeholder="Angular">
+        </td>
+       
+        <td>
+          <b>Question Asked :</b>
+            <input type="text" formControlName="questionAsked" class="form-control" placeholder="What is typescript?">
+        </td>
+        <td>
+        <b>Given Answer:</b>
+            <input type="text" formControlName="givenAnswer" class="form-control" placeholder="Superset of Javascript">
+        </td>
+        <td >
+            <button (click)="removeQuestionAnswers(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+
+  <!--  <p>
+      <label for="name"><B>*Interview Date:</B></label>
+      <input type="text" id="name" name="interviewDate" formControlName="interviewDate" class="form-control" placeholder="10/10/2020"> 
+    </p>
 -->
-      <div class="form-group">
-        <label for="prenom">Technology</label>
-        <select class="form-control" id="technology" [(ngModel)]="interviewQuestionAnswer.technology"  required name="technology">
-          <option value="" [selected]="isSelected" disabled> Please choose one technology</option>
-          <option *ngFor="let technology of Technologies" [value]="technology">{{ technology }}</option>
-        </select>
+    <div class="form-group">
+      <label ><B>*Interview Date:</B></label>
+      <input type="text" formControlName="interviewDate" class="form-control" placeholder="10/10/2020" [ngClass]="{ 'is-invalid': submitted && f.interviewDate.errors }" />
+      <div *ngIf="submitted && f.interviewDate.errors" class="invalid-feedback">
+          <div *ngIf="f.employerName.errors.required">Interview Date required</div>
+      </div>
     </div>
 
-      <div class="form-group">
-        <label for="questionAsked">Question Asked:</label>
-        <input [(ngModel)]="interviewQuestionAnswer.questionAsked" placeholder="What is Microservice?" name="questionAsked" class="form-control" id="questionAsked">
-      </div>
-    
-      <div class="form-group">
 
-        <label for="answer">Given Answer:</label>
-        <input [(ngModel)]="interviewQuestionAnswer.givenAnswer" placeholder="Decoupling of monolithic application in to granular service." name="Given Answer" class="form-control" id="givenAnswer">
-      </div>
-
-      
-      <div class="form-group">
-        <label for="interviewDate">Interview date:(mm/dd/yyyy)</label>
-        <input [(ngModel)]="interviewQuestionAnswer.interviewDate" placeholder="04/18/2020" name="Interview date" class="form-control" id="interviewDate">
-      </div>
+    <button class="btn btn-success" (click)="createInterviewQA()">Create</button>
     
-      <button class="btn btn-success" (click)="createInterviewQA()">Create</button>
-    </form>
-    </div>
+  </form>
+    
+  <br/>
+ <!-- {{this.productForm.value | json}}-->
+</div>

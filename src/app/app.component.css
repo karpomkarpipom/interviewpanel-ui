@@ -1,5 +1,6 @@
 .image{
     height:40em; background-size:cover; width:auto;
-    background-image:url('./images/images.png');
+    background-image:url('./images/interviewpanel-image.JPG');
     background-position:50% 50%;
+    height: 100%;
   }

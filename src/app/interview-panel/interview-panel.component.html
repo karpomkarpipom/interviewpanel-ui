@@ -15,22 +15,31 @@
     <td mat-cell *matCellDef="let element" class="border"> {{element.employerName}} </td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="technology">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Technology </th>
-    <td mat-cell *matCellDef="let element" class="border"> {{element.technology}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="questionAsked" >
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Question Asked </th>
-    <td mat-cell *matCellDef="let element" class="border"> {{element.questionAsked}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="givenAnswer">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Given Answer </th>
-    <td mat-cell *matCellDef="let element" class="border"> {{element.givenAnswer}} </td>
+  <ng-container matColumnDef="questionAnswers">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Question And Answers </th>
+    <td mat-cell class="border" *matCellDef="let element">
+        <div class="questionAnswers">
+          <table>
+            <thead>
+              <tr class="table-header-bg">
+                  <th>Technology</th>
+                  <th>Question Asked</th>
+                  <th>Given Answer</th>
+              </tr>
+          </thead>
+            <tr *ngFor="let questionAnswer of element.questionAnswers">
+                              
+                <td  mat-cell class="border">{{questionAnswer.technology}}</td>
+                <td   mat-cell class="border qa">{{questionAnswer.questionAsked}}</td>
+                <td  mat-cell class="border ga">{{questionAnswer.givenAnswer}}</td>
+             
+            </tr>
+       
+            </table>
+         
+        
+        </div>
+    </td >
   </ng-container>
 
   <ng-container matColumnDef="interviewDate">

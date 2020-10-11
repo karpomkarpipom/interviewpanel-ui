@@ -5,9 +5,7 @@ export class InterviewQuestionAnswer{
   constructor(
     public questionPostedBy:string,
     public employerName:string,
-    public technology:string,
-    public questionAsked:string,
-    public givenAnswer:string,
+    Qas:  Qas[],
     public interviewDate:string,
 
   ) {}
@@ -23,6 +21,14 @@ export class User{
   ) {}
 }
 
+export class Qas{
+  
+    public technology:string
+    public questionAsked:string
+    public givenAnswer:string
+   
+ 
+}
 
 @Injectable({
   providedIn: 'root'

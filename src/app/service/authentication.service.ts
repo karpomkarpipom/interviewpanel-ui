@@ -36,11 +36,11 @@ export class AuthenticationService {
   //   );
   // }
 
-  authenticate(username, password) {
-    return this.httpClient.post<any>('http://localhost:8080/api/authenticate',{username,password}).pipe(
+  authenticate(email, password) {
+    return this.httpClient.post<any>('http://localhost:8080/api/authenticate',{email,password}).pipe(
      map(
        userData => {
-        sessionStorage.setItem('username',username);
+        sessionStorage.setItem('email',email);
         let tokenStr= 'Bearer '+userData.accessToken;
         sessionStorage.setItem('token', tokenStr);
         return userData;
@@ -51,12 +51,13 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
+    let user = sessionStorage.getItem('email')
     console.log(!(user === null))
     return !(user === null)
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
   }
 }

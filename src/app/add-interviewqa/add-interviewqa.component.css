@@ -1,0 +1,22 @@
+.table-header-bg {
+    background-color: wheat;
+  }
+
+  h1 {
+    color: darkred;
+  }
+
+  .label {
+    color: violet;
+    padding: 8px;
+    
+  }
+
+  .labelAddQA {
+  
+    background-color: rgb(145, 145, 145);
+    
+  }
+  .labelAddQA1 {
+    background-color:rgb(245, 242, 238);
+  }

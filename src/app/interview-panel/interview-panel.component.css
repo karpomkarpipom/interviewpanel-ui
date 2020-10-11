@@ -15,6 +15,7 @@ table {
   ::ng-deep th.mat-header-cell{
     width: 140px;
     min-width: 140px;
+    color:black;
 }
 
 .highlight{
@@ -22,18 +23,34 @@ table {
   background: #673AB7;
 }
 
-.mat-cell {
-  background-color: lightblue;
-}
-.mat-cell:nth-child(3) {
-  width: 400px;
-}
-.mat-cell:nth-child(4) {
-  width: 400px;
-}
-.mat-cell:last-child {
-  width: 300px;
-}
+
 .mat-header-cell {
-  background-color: darksalmon;
+  background-color:rgb(145, 145, 145);
+  
+}
+
+th {
+  font-weight: 500;
+}
+
+.qa {
+  width: 25%;
+}
+
+.ga {
+  width: 50%;
+}
+
+td {
+  background: rgb(245, 242, 238);
+  
+}
+.questionAnswer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.questionAnswers {
+  display: grid;
+  grid-template-columns: 1fr;
 }

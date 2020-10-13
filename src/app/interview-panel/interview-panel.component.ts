@@ -39,11 +39,4 @@ applyFilter(filterValue:String){
 
 
 
-// deleteEmployee(interviewQuestionAnswer: InterviewQuestionAnswer): void { 
-//     this.interviewPanelService.deleteInterviewQA(interviewQuestionAnswer)
-//       .subscribe( data => {
-//         this.interviewQuestionAnswers = this.interviewQuestionAnswers.filter(u => u !== interviewQuestionAnswer);
-//       })
-//   };
-
 }

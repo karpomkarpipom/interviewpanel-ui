@@ -1,6 +1,11 @@
-# EmployeeManagement
+# Interviewpanel-ui-code
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+
+> Download VSS - Visual Studio Code and install setup in local and follow the below steps in the below link
+
+> https://medium.com/@Zeroesandones/how-to-create-a-shell-angular-9-project-5b5b254b3ac4
+
 
 ## Development server
 

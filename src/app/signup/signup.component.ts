@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
     }
     this.interviewPanelService.createUser(this.registerForm.value)
         .subscribe( data => {
-          alert(this.registerForm.value.fields.firstName+" signup successfully done!");
+          alert(this.registerForm.get('email').value+" signup successfully done!");
         },  err => {
           if(err.status==500)
           console.log(err)

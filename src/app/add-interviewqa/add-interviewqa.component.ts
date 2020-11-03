@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormArray, NgForm } fr
 export class AddInterviewqaComponent  {
   name = 'Angular';
   private QaArray: Array<Qas> = [];
-  interviewQuestionAnswer: InterviewQuestionAnswer = new InterviewQuestionAnswer("","",this.QaArray,"");
+  interviewQuestionAnswer: InterviewQuestionAnswer = new InterviewQuestionAnswer("","",this.QaArray,"","");
 
   productForm: FormGroup;
   submitted = false;
@@ -21,7 +21,8 @@ export class AddInterviewqaComponent  {
       employerName: ['', Validators.required],
       contact: ['', [Validators.required]],
       interviewDate: ['', [Validators.required]],
-      questionPostedBy: ['', Validators.required]
+      questionPostedBy: ['', Validators.required],
+      experiencelevel:['', Validators.required]
     });
   }
 

@@ -7,7 +7,7 @@ export class InterviewQuestionAnswer{
     public employerName:string,
     Qas:  Qas[],
     public interviewDate:string,
-
+    public experiencelevel:string
   ) {}
 }
 
@@ -40,7 +40,7 @@ export class InterviewPanelServiceService {
   getInterviewQAList()
   {
     console.log("test call");
-       return this.httpClient.get<InterviewQuestionAnswer[]>('http://localhost:8080/api/interviewpanel/v1/qalist');
+       return this.httpClient.get<InterviewQuestionAnswer[]>('http://localhost:8080/api/interviewpanel/qa/v1/qalist');
   }
 
   public deleteInterviewQA(interviewQuestionAnswer) {
@@ -49,11 +49,11 @@ export class InterviewPanelServiceService {
   }
 
   public createInterviewQA(interviewQuestionAnswer) {
-    return this.httpClient.post<InterviewQuestionAnswer>("http://localhost:8080/api/interviewpanel/v1/addQA", interviewQuestionAnswer);
+    return this.httpClient.post<InterviewQuestionAnswer>("http://localhost:8080/api/interviewpanel/qa/v1/addQA", interviewQuestionAnswer);
   }
 
   public createUser(user) {
-    return this.httpClient.post<User>("http://localhost:8080/api/signup", user);
+    return this.httpClient.post<User>("http://localhost:8080/api/interviewpanel/user/signup", user);
   }
 }
 

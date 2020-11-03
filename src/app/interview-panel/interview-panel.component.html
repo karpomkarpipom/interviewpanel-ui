@@ -47,6 +47,11 @@
     <td mat-cell *matCellDef="let element" class="border"> {{element.interviewDate}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="experiencelevel">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Expericence Level </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.experiencelevel}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="questionPostedBy">
     <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> QuestionPosted By </th>
     <td mat-cell *matCellDef="let element" class="border"> {{element.questionPostedBy}} </td>

@@ -39,7 +39,17 @@
     </div>
     </div>
   
-  
+    <div class="form-group">
+      <label for="experiencelevel" ><B>Experience level:</B></label>
+      <input type="text" id="experiencelevel" name="experiencelevel" required formControlName="experiencelevel" class="form-control"
+       placeholder="10+"
+       [ngClass]="{ 'is-invalid': submitted && f.experiencelevel.errors }" 
+       > 
+       <div *ngIf="submitted && f.experiencelevel.errors" class="invalid-feedback">
+        <div *ngIf="f.experiencelevel.errors.required">experience level required</div>
+    </div>
+    </div>
+
     <table class="table table-bordered" formArrayName="questionAnswers">
       <tr>
         <th colspan="3" class="labelAddQA">*Question and Answers:</th>

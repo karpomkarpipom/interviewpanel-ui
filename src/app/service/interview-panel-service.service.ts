@@ -53,7 +53,7 @@ export class InterviewPanelServiceService {
   }
 
   public createUser(user) {
-    return this.httpClient.post<User>("http://localhost:8080/api/interviewpanel/user/signup", user);
+    return this.httpClient.post<User>("http://localhost:8080/api/interviewpanel/user/v1/signup", user);
   }
 }
 

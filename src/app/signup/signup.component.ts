@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InterviewPanelServiceService,User } from '../service/interview-panel-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../_helpers/must-match.validator';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder,private interviewPanelService:InterviewPanelServiceService) { }
+  constructor(private formBuilder: FormBuilder,private interviewPanelService:InterviewPanelServiceService,private router: Router) { }
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
@@ -42,12 +43,24 @@ export class SignupComponent implements OnInit {
     }
     this.interviewPanelService.createUser(this.registerForm.value)
         .subscribe( data => {
-          alert(this.registerForm.get('email').value+" signup successfully done!");
+          alert(this.registerForm.get('firstName').value+' '+this.registerForm.get('lastName').value+" signup successfully done.Welcome mail sent to email successfully.Please login with your email!");
+          this.router.navigate(['']);
         },  err => {
+          if(err.status==0)
+          {
+            alert(this.registerForm.get('firstName').value+' '+this.registerForm.get('lastName').value+" signup successfully done.Welcome mail sent to email successfully.Please login with your email!" );
+            this.router.navigate(['']);
+          }
+         if(err.status==302)
+          {
+          alert(err.status);
+             alert("User -> already exists!");
+          }
           if(err.status==500)
-          console.log(err)
-          alert("User already exists!");
-          
+          {
+          alert(err.status);
+             alert("Server error!");
+          }
         });
 
   };

@@ -37,7 +37,7 @@ export class AuthenticationService {
   // }
 
   authenticate(email, password) {
-    return this.httpClient.post<any>('http://18.223.134.52:8080/api/authenticate',{email,password}).pipe(
+    return this.httpClient.post<any>('http://localhost:8080/api/authenticate',{email,password}).pipe(
      map(
        userData => {
         sessionStorage.setItem('email',email);

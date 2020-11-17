@@ -1,7 +1,7 @@
 <div></div>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-
+<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter result by employer name/question posted" />
+<div></div>
 <div class="mat-elevation-z8">
 
 <mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z2" style="margin-bottom: 10px;">
@@ -15,24 +15,33 @@
     <td mat-cell *matCellDef="let element" class="border"> {{element.employerName}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="interviewDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Interview Date </th>
+    <td mat-cell *matCellDef="let element" class="border"> {{element.interviewDate}} </td>
+  </ng-container>
+
+
+
   <ng-container matColumnDef="questionAnswers">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Question And Answers </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Technology -> Question -> Answer </th>
     <td mat-cell class="border" *matCellDef="let element">
         <div class="questionAnswers">
           <table>
             <thead>
-              <tr class="table-header-bg">
+            <!-- <tr class="table-header-bg">
                   <th>Technology</th>
                   <th>Question Asked</th>
                   <th>Given Answer</th>
-              </tr>
+              </tr>--> 
           </thead>
             <tr *ngFor="let questionAnswer of element.questionAnswers">
                               
                 <td  mat-cell class="border">{{questionAnswer.technology}}</td>
-                <td   mat-cell class="border qa">{{questionAnswer.questionAsked}}</td>
-                <td  mat-cell class="border ga">{{questionAnswer.givenAnswer}}</td>
-             
+                <td  mat-cell class="border ga"><textarea cols="50" rows="4" [(ngModel)] = "questionAnswer.questionAsked" disabled></textarea></td>
+               <td  mat-cell class="border ga"><textarea cols="70" rows="4" [(ngModel)] = "questionAnswer.givenAnswer" ></textarea></td>
+                <td mat-cell class="border ga"><button (click)="edit(element)" class="btn btn-link">update answer</button></td>
+              <!--  <td mat-cell class="border ga"><button (click)="edit()" class="btn btn-dark">upvote</button></td>
+                <td mat-cell class="border ga"><button (click)="edit()" class="btn btn-dark">down vote</button></td> -->
             </tr>
        
             </table>
@@ -41,14 +50,8 @@
         </div>
     </td >
   </ng-container>
-
-  <ng-container matColumnDef="interviewDate">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Interview Date </th>
-    <td mat-cell *matCellDef="let element" class="border"> {{element.interviewDate}} </td>
-  </ng-container>
-
   <ng-container matColumnDef="experiencelevel">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Expericence Level </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Experience Level </th>
     <td mat-cell *matCellDef="let element" class="border"> {{element.experiencelevel}} </td>
   </ng-container>
 
@@ -56,14 +59,32 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> QuestionPosted By </th>
     <td mat-cell *matCellDef="let element" class="border"> {{element.questionPostedBy}} </td>
   </ng-container>
+  <div *ngIf="isAdmin"> 
+  <ng-container matColumnDef="action" >
 
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Action </th>
+    <!--<td mat-cell *matCellDef="let element" class="border"><button (click)="edit(element)" class="btn btn-dark">update answer</button> </td>-->
+    <td  mat-cell *matCellDef="let element" class="border"  >
+      <button (click)="delete(element)" class="btn btn-danger">delete all answers</button>
+      &nbsp;
+      <button (click)="edit(element)" class="btn btn-dark">update all answers</button>
+     </td>
+   </ng-container>
+</div>
+
+<div *ngIf="!isAdmin"> 
+  <ng-container matColumnDef="action" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="border"> Action </th>
+   <td mat-cell *matCellDef="let element" class="border"><button (click)="edit(element)" class="btn btn-dark">update all answers</button> </td>
+    </ng-container>
+</div>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
  
 </mat-table>
-   <table><td><mat-paginator fixed [pageSizeOptions]="[9,10, 50, 100]" showFirstLastButtons></mat-paginator> </td></table>
+   <table><td><mat-paginator fixed [pageSizeOptions]="[5,9,10, 50, 100]" showFirstLastButtons></mat-paginator> </td></table>
 </div>
 
 

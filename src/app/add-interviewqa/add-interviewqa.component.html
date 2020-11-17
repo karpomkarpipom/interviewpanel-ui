@@ -56,7 +56,9 @@
         <th width="150px" class="labelAddQA"><button type="button" (click)="addQuestionAnswers()" class="btn btn-primary">Add More</button></th>
       </tr>
       <tr class="labelAddQA1" *ngFor="let questionAnswers of questionAnswers().controls; let i=index" [formGroupName]="i">
+         
        
+        <input formControlName="qId" type="hidden" ngModel="{{i}}"> 
         <td>
           <b>Technology :</b>
           <input type="text" formControlName="technology" class="form-control" placeholder="Angular">

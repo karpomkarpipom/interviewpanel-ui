@@ -46,6 +46,7 @@ export class SignupComponent implements OnInit {
           alert(this.registerForm.get('firstName').value+' '+this.registerForm.get('lastName').value+" signup successfully done.Welcome mail sent to email successfully.Please login with your email!");
           this.router.navigate(['']);
         },  err => {
+          //alert(err.status);
           if(err.status==0)
           {
             alert(this.registerForm.get('firstName').value+' '+this.registerForm.get('lastName').value+" signup successfully done.Welcome mail sent to email successfully.Please login with your email!" );
@@ -53,7 +54,7 @@ export class SignupComponent implements OnInit {
           }
          if(err.status==302)
           {
-          alert(err.status);
+       
              alert("User -> already exists!");
           }
           if(err.status==500)

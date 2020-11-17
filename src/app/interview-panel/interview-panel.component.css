@@ -54,3 +54,10 @@ td {
   display: grid;
   grid-template-columns: 1fr;
 }
+
+.btn-dark{
+  background-color:#4585cf;
+  color: #FFF;
+  }
+
+ .btn-black:hover{color: #FFF;}

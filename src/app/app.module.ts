@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactusComponent } from './contactus/contactus.component';
 import { MatTableModule ,MatPaginatorModule,MatSortModule, MatFormFieldModule,MatInputModule } from '@angular/material';
+import { EmailSettingsComponent } from './settings/emailsettings/emailsettings.component';
+import { ProfileSettingsComponent } from './settings/profilesettings/profilesettings.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { MatTableModule ,MatPaginatorModule,MatSortModule, MatFormFieldModule,Ma
     LogoutComponent,
     SignupComponent,
     FeedbackComponent,
-    ContactusComponent
+    ContactusComponent,
+    EmailSettingsComponent,
+    ProfileSettingsComponent
   ],
   imports: [
     BrowserModule,

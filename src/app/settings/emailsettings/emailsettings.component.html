@@ -1,0 +1,99 @@
+
+<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+<form>
+    
+  <!-- NAME INPUT -->
+  <div class="form-group">
+      <label>Preffered email id*</label>
+      <input type="text" class="form-control" name="email" ng-model="formData.email">
+  </div>
+  
+  <!-- MULTIPLE CHECKBOXES -->
+  <label>Technologies</label>
+  <div class="form-group">
+      <label class="checkbox-inline">
+          <input type="checkbox" name="favoriteColors" ng-model="formData.colors.red" > Java
+      </label>
+      <label class="checkbox-inline">
+          <input type="checkbox" name="favoriteColors" ng-model="formData.colors.blue"> Microservice
+      </label>
+      <label class="checkbox-inline">
+          <input type="checkbox" name="favoriteColors" ng-model="formData.colors.green"> Angular
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.green"> Networking
+    </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" name="favoriteColors" ng-model="formData.colors.green"> Other Technologies
+    </label>
+
+  </div>
+  
+  <!-- CUSTOM VALUE CHECKBOXES -->
+  <label>Count per notification</label>
+  <div class="radio">
+    <label>
+        <input type="radio" name="chickenEgg" value="chicken" ng-model="formData.chickenEgg" checked> 
+        1</label>
+</div>
+<div class="radio">
+  <label>
+      <input type="radio" name="chickenEgg" value="chicken" ng-model="formData.chickenEgg" > 
+      5
+  </label>
+</div>
+<div class="radio">
+  <label>
+      <input type="radio" name="chickenEgg" value="chicken" ng-model="formData.chickenEgg" > 
+      10
+  </label>
+</div>
+  
+
+
+
+  <!-- RADIO BUTTONS -->
+  <label>Notification by</label>
+  <div class="form-group">
+      <div class="radio">
+          <label>
+              <input type="radio" name="everyday" value="everyday" ng-model="formData.chickenEgg" checked> 
+              Every Day
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="everyweek" value="everyweek" ng-model="formData.chickenEgg">
+              Every Week
+          </label>
+      </div>
+      <div class="radio">
+        <label>
+            <input type="radio" name="everymonth" value="everymonth" ng-model="formData.chickenEgg">
+            Every Month
+        </label>
+    </div>
+  </div>
+
+  <label> Questions and Anwsers</label>
+  <div class="radio">
+    <label>
+        <input type="radio" name="repetitive" value="repetitive" ng-model="formData.chickenEgg" checked> 
+        Repetitive</label>
+</div>
+<div class="radio">
+  <label>
+      <input type="radio" name="nodupe" value="nodupe" ng-model="formData.chickenEgg" > 
+      No duplicate
+  </label>
+</div>
+<div class="radio">
+  <label>
+      <input type="radio" name="mixed" value="mixed" ng-model="formData.chickenEgg" > 
+      Mixed
+  </label>
+</div>
+  <button type="submit" class="btn btn-danger btn-lg">Create/Update</button>
+  
+</form>
+</div>
